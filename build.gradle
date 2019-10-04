@@ -1,0 +1,60 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+        classpath "com.netflix.nebula:nebula-release-plugin:6.0.2"
+    }
+}
+
+plugins {
+    id 'java-library'
+    id "com.jfrog.bintray" version "1.7"
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group = 'com.github.bijukunjummen'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    api "commons-codec:commons-codec"
+    api "com.fasterxml.jackson.core:jackson-core"
+    api "com.fasterxml.jackson.core:jackson-databind"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+    configurations = ['archives']
+    pkg {
+        repo = 'repo'
+        name = project.name
+        group = project.group
+//        version = project.version
+        userOrg = user
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/bijukunjummen/json-hash.git'
+    }
+}
