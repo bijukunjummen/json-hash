@@ -47,6 +47,20 @@ test {
     useJUnitPlatform()
 }
 
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
 bintray {
     user = bintray_user
     key = bintray_api_key
