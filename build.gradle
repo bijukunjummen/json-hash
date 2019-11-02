@@ -16,6 +16,7 @@ plugins {
     id "com.jfrog.bintray" version "1.8.4"
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'maven-publish'
+    id 'maven'
     id 'nebula.release' version '13.0.0'
 }
 
