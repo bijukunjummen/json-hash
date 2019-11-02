@@ -13,8 +13,10 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id "com.jfrog.bintray" version "1.7"
+    id "com.jfrog.bintray" version "1.8.4"
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'maven-publish'
+    id 'nebula.release' version '13.0.0'
 }
 
 group = 'com.github.bijukunjummen'
@@ -57,4 +59,16 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/bijukunjummen/json-hash.git'
     }
+}
+
+tasks.snapshot {
+    finalizedBy tasks.bintrayUpload
+}
+
+tasks.candidate {
+    finalizedBy tasks.bintrayUpload
+}
+
+tasks.final {
+    finalizedBy tasks.bintrayUpload
 }
