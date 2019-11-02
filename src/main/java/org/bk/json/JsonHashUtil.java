@@ -20,8 +20,10 @@ public class JsonHashUtil {
     }
 
     public static String generateHash(JsonNode jsonNode, Set<String> fieldNamePatternsToIgnore) {
-        return traverseTreeAndGenerateHash(jsonNode, fieldNamePatternsToIgnore.stream().collect(Collectors.joining(
-                "|")));
+        return traverseTreeAndGenerateHash(jsonNode,
+                fieldNamePatternsToIgnore
+                        .stream()
+                        .collect(Collectors.joining("|")));
     }
 
     private static String traverseTreeAndGenerateHash(JsonNode jsonNode, String fieldNamePatternsToIgnore) {
