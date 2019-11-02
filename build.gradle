@@ -61,14 +61,14 @@ bintray {
     }
 }
 
-tasks.snapshot {
-    finalizedBy tasks.bintrayUpload
-}
-
-tasks.candidate {
-    finalizedBy tasks.bintrayUpload
-}
-
-tasks.final {
-    finalizedBy tasks.bintrayUpload
-}
+//tasks.snapshot {
+//    finalizedBy tasks.bintrayUpload
+//}
+//
+//tasks.candidate {
+//    finalizedBy tasks.bintrayUpload
+//}
+//
+//tasks.final {
+//    finalizedBy tasks.bintrayUpload
+//}
