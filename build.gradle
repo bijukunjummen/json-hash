@@ -61,6 +61,40 @@ bintray {
     }
 }
 
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name 'json-hash'
+            description 'Utility for hashing a Jackson Json Node'
+            url 'https://github.com/bijukunjummen/json-hash.git'
+            inceptionYear '2019'
+
+            packaging 'jar'
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                connection 'https://github.com/bijukunjummen/json-hash.git'
+                url 'https://github.com/bijukunjummen/json-hash.git'
+
+            }
+            developers {
+                developer {
+                    name 'Biju Kunjummen'
+                }
+            }
+        }
+    }
+}
+
 //tasks.snapshot {
 //    finalizedBy tasks.bintrayUpload
 //}
