@@ -6,8 +6,6 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
-        classpath "com.netflix.nebula:nebula-release-plugin:6.0.2"
     }
 }
 
@@ -109,15 +107,3 @@ install {
         }
     }
 }
-
-//tasks.snapshot {
-//    finalizedBy tasks.bintrayUpload
-//}
-//
-//tasks.candidate {
-//    finalizedBy tasks.bintrayUpload
-//}
-//
-//tasks.final {
-//    finalizedBy tasks.bintrayUpload
-//}
