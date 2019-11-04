@@ -12,7 +12,6 @@ buildscript {
 plugins {
     id 'java-library'
     id "com.jfrog.bintray" version "1.8.4"
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'maven-publish'
     id 'maven'
     id 'nebula.release' version '13.0.0'
@@ -27,18 +26,13 @@ repositories {
 }
 
 dependencies {
+    implementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
     api "commons-codec:commons-codec"
     api "com.fasterxml.jackson.core:jackson-core"
     api "com.fasterxml.jackson.core:jackson-databind"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-    }
 }
 
 test {
